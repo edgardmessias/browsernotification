@@ -1,17 +1,26 @@
 <?php
 
-define('PLUGIN_BROWSERNOTIFICATION_VERSION', '0.1.0');
+define('PLUGIN_BROWSERNOTIFICATION_VERSION', '0.1.1');
 
 // Init the hooks of the plugins -Needed
 function plugin_init_browsernotification() {
-   global $PLUGIN_HOOKS, $CFG_BROWSER_NOTIF;
+   global $PLUGIN_HOOKS, $CFG_GLPI, $CFG_BROWSER_NOTIF;
 
    $PLUGIN_HOOKS['csrf_compliant']['browsernotification'] = true;
 
    $CFG_BROWSER_NOTIF = Config::getConfigurationValues('browsernotification');
 
+   if (Session::getLoginUserID()) {
+      $user_prefer = Config::getConfigurationValues('browsernotification (' . Session::getLoginUserID() . ')');
+      $CFG_BROWSER_NOTIF = array_merge($CFG_BROWSER_NOTIF, $user_prefer);
+   }
+
    Plugin::registerClass('PluginBrowsernotificationConfig', [
       'addtabon' => ['Config']
+   ]);
+
+   Plugin::registerClass('PluginBrowsernotificationPreference', [
+      'addtabon' => ['Preference', 'User']
    ]);
 
    $locale = strtolower($CFG_GLPI["languages"][$_SESSION['glpilanguage']][2]);

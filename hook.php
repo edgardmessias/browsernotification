@@ -23,7 +23,12 @@ function plugin_browsernotification_install() {
 
 function plugin_browsernotification_uninstall() {
 
-   Config::deleteConfigurationValues('browsernotification');
+   $config = new Config();
+   $rows = $config->find("`context` LIKE 'browsernotification%'");
+
+   foreach ($rows as $id => $row) {
+      $config->delete(['id' => $id]);
+   }
 
    return true;
 }

@@ -21,17 +21,25 @@ class PluginBrowsernotificationConfig extends CommonDBTM {
       return true;
    }
 
+   static function configUpdate($input) {
+      unset($input['_no_history']);
+      return $input;
+   }
+
    /**
     * Print the config form for display
     *
     * @return Nothing (display)
     * */
    function showFormDisplay() {
-      global $CFG_GLPI, $CFG_BROWSER_NOTIF;
+      global $CFG_GLPI;
 
       if (!Config::canView()) {
          return false;
       }
+      
+      $CFG_GLOBAL = Config::getConfigurationValues('browsernotification');
+
       $canedit = Session::haveRight(Config::$rightname, UPDATE);
       if ($canedit) {
          echo "<form name='form' action=\"" . Toolbox::getItemTypeFormURL('Config') . "\" method='post'>";
@@ -46,24 +54,22 @@ class PluginBrowsernotificationConfig extends CommonDBTM {
 
       echo "<tr class='tab_bg_2'>";
       echo "<td width='30%'> " . __bn('Ignore deleted items?') . "</td><td  width='20%'>";
-      Dropdown::showYesNo("ignore_deleted_items", $CFG_BROWSER_NOTIF["ignore_deleted_items"]);
+      Dropdown::showYesNo("ignore_deleted_items", $CFG_GLOBAL["ignore_deleted_items"]);
       echo "</td><td width='30%'>" . __bn('Time to check for new notifications (in seconds)') . "</td>";
       echo "<td width='20%'>";
-      Dropdown::showInteger('check_interval', $CFG_BROWSER_NOTIF["check_interval"], 5, 120, 5);
+      Dropdown::showInteger('check_interval', $CFG_GLOBAL["check_interval"], 5, 120, 5);
       echo "</td></tr>";
       echo "<tr class='tab_bg_2'>";
       echo "<td>" . __bn('URL of the icon') . "</td>";
-      echo "<td colspan='3'><input type='text' name='icon_url' size='80' value='" . $CFG_BROWSER_NOTIF["icon_url"] . "' "
+      echo "<td colspan='3'><input type='text' name='icon_url' size='80' value='" . $CFG_GLOBAL["icon_url"] . "' "
       . "placeholder='Default: " . $CFG_GLPI['root_doc'] . "/plugins/browsernotification/pics/glpi.png'/>";
       echo "</td></tr>";
 
       echo "<tr><th colspan='4'>" . __('Default values') . "</th></tr>";
 
-      echo "<tr class='tab_bg_2'>";
-      echo "<td width='30%'> " . __('Notifications for my changes') . "</td><td  width='20%'>";
-      Dropdown::showYesNo("notification_my_changes", $CFG_BROWSER_NOTIF["notification_my_changes"]);
-      echo "</td></tr>";
-
+      $prefer = new PluginBrowsernotificationPreference();
+      $prefer->computePreferences();
+      $prefer->showFormDefault();
 
       if ($canedit) {
          echo "<tr class='tab_bg_2'>";
