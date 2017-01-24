@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <name>Browser Notificaion</name>
+    <key>browsernotification</key>
+    <state>stable</state>
+    <logo>https://raw.githubusercontent.com/edgardmessias/browsernotification/master/plugin.png</logo>
+    <description>
+        <short>
+            <en><![CDATA[This plugin allow your browser to show notifications for GLPI]]></en>
+        </short>
+        <long>
+            <en><![CDATA[
+# Browser Notificaion (GLPI)
+This plugin allow your browser to show notifications for GLPI
+
+# Installation (EN)
+ * Uncompress the archive to the `<GLPI_ROOT>/plugins/browsernotification` directory
+ * Navigate to the Configuration > Plugins page,
+ * Install and activate the plugin.
+ * Go to Configuration > General > Browser Notification and configure
+
+# Usage (EN)
+ * You need keep a browser open to show notifications
+ * Note: First notification is skipped.
+
+# Resources (EN)
+ * Allow open multiple browsers or tabs and show only one notification
+ * Low resource usage
+ * Allow configuration
+ * Notification in all browsers in which you are connected
+
+# TODO
+* More options for configuration page
+* Configuration per user
+* User profile permission
+]]></en>
+        </long>
+    </description>
+    <homepage>https://github.com/edgardmessias/browsernotification</homepage>
+    <download>https://github.com/edgardmessias/browsernotification/releases</download>
+    <issues>https://github.com/edgardmessias/browsernotification/issues</issues>
+    <readme>https://github.com/edgardmessias/browsernotification/wiki</readme>
+    <authors>
+        <author>Edgard Lorraine Messias</author>
+    </authors>
+    <versions>
+        <version>
+            <num>0.1.0</num>
+            <compatibility>9.1</compatibility>
+        </version>
+    </versions>
+    <langs>
+        <lang>Any</lang>
+    </langs>
+    <license><![CDATA[GPL v2+]]></license>
+    <tags>
+        <en>
+            <tag>Browser</tag>
+            <tag>Web notifcaion</tag>
+            <tag>Notification</tag>
+        </en>
+    </tags>
+</root>

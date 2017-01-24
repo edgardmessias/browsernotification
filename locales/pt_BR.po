@@ -1,0 +1,40 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2017-01-23 22:21-0200\n"
+"PO-Revision-Date: 2017-01-23 22:21-0200\n"
+"Last-Translator: Edgard Lorraine Messias <edgardmessias@gmail.com>\n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-KeywordsList: __bn\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../browsernotification/inc/config.class.php:8
+#: ../browsernotification/setup.php:30
+msgid "Browser Notification"
+msgstr "Notificação do navegador"
+
+#: ../browsernotification/inc/config.class.php:48
+msgid "Check deleted items?"
+msgstr "Verificar itens apagados?"
+
+#: ../browsernotification/inc/config.class.php:50
+msgid "Time to check for new notifications (in seconds)"
+msgstr "Tempo para verificar novas notificações (em segundos)"
+
+#: ../browsernotification/setup.php:41
+msgid "This plugin requires GLPI >= 9.1"
+msgstr "Este plugin requer GLPI >= 9.1"
+
+#~ msgid "This plugin requires GLPI >= 0.85"
+#~ msgstr "Este plugin requer GLPI >= 0.85"
+
+#~ msgid "Notification"
+#~ msgstr "Notificação"
