@@ -6,6 +6,7 @@ function plugin_browsernotification_install() {
       'ignore_deleted_items'    => 1,
       'check_interval'          => 5,
       'notification_my_changes' => 0,
+      'icon_url'                => '',
    ];
 
    $current = Config::getConfigurationValues('browsernotification');

@@ -13,14 +13,18 @@ $options = [
    'interval' => $CFG_BROWSER_NOTIF['check_interval'] * 1000,
    'locale'   => strtolower($CFG_GLPI["languages"][$_SESSION['glpilanguage']][2]),
 ];
+
+if ($CFG_BROWSER_NOTIF["icon_url"]) {
+   $options['icon'] = $CFG_BROWSER_NOTIF["icon_url"];
+}
 ?>
 <?php if (false): ?>
    <!--Pequeno truque para formatar em javascript-->
    <script type="text/javascript">
 <?php endif; ?>
    (function () {
-      var check = new GLPIBrowserNotification(<?php echo json_encode($options) ?>);
-      check.start();
+       var check = new GLPIBrowserNotification(<?php echo json_encode($options) ?>);
+       check.start();
    })();
 <?php if (false): ?>
    </script>

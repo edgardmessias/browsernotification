@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-01-23 22:53-0200\n"
-"PO-Revision-Date: 2017-01-23 22:54-0200\n"
+"POT-Creation-Date: 2017-01-23 23:07-0200\n"
+"PO-Revision-Date: 2017-01-23 23:07-0200\n"
 "Last-Translator: Edgard Lorraine Messias <edgardmessias@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -28,6 +28,10 @@ msgstr "Ignorar itens apagados?"
 #: ../browsernotification/inc/config.class.php:50
 msgid "Time to check for new notifications (in seconds)"
 msgstr "Tempo para verificar novas notificações (em segundos)"
+
+#: ../browsernotification/inc/config.class.php:55
+msgid "URL of the icon"
+msgstr "URL do ícone"
 
 #: ../browsernotification/setup.php:39
 msgid "This plugin requires GLPI >= 9.1"

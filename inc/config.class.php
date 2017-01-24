@@ -51,6 +51,11 @@ class PluginBrowsernotificationConfig extends CommonDBTM {
       echo "<td width='20%'>";
       Dropdown::showInteger('check_interval', $CFG_BROWSER_NOTIF["check_interval"], 5, 120, 5);
       echo "</td></tr>";
+      echo "<tr class='tab_bg_2'>";
+      echo "<td>" . __bn('URL of the icon') . "</td>";
+      echo "<td colspan='3'><input type='text' name='icon_url' size='80' value='" . $CFG_BROWSER_NOTIF["icon_url"] . "' "
+      . "placeholder='Default: " . $CFG_GLPI['root_doc'] . "/plugins/browsernotification/pics/glpi.png'/>";
+      echo "</td></tr>";
 
       echo "<tr><th colspan='4'>" . __('Default values') . "</th></tr>";
 
