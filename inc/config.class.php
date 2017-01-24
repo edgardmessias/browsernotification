@@ -45,7 +45,7 @@ class PluginBrowsernotificationConfig extends CommonDBTM {
       echo "<tr><th colspan='4'>" . __('General setup') . "</th></tr>";
 
       echo "<tr class='tab_bg_2'>";
-      echo "<td width='30%'> " . __bn('Check deleted items?') . "</td><td  width='20%'>";
+      echo "<td width='30%'> " . __bn('Ignore deleted items?') . "</td><td  width='20%'>";
       Dropdown::showYesNo("ignore_deleted_items", $CFG_BROWSER_NOTIF["ignore_deleted_items"]);
       echo "</td><td width='30%'>" . __bn('Time to check for new notifications (in seconds)') . "</td>";
       echo "<td width='20%'>";
