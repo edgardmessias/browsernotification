@@ -1,4 +1,4 @@
-# Browser Notificaion (GLPI)
+# Browser Notification (GLPI)
 This plugin allow your browser to show notifications for GLPI
 
 # Installation (EN)

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-    <name>Browser Notificaion</name>
+    <name>Browser Notification</name>
     <key>browsernotification</key>
     <state>stable</state>
     <logo>https://raw.githubusercontent.com/edgardmessias/browsernotification/master/plugin.png</logo>
@@ -10,7 +10,7 @@
         </short>
         <long>
             <en><![CDATA[
-# Browser Notificaion (GLPI)
+# Browser Notification (GLPI)
 This plugin allow your browser to show notifications for GLPI
 
 # Installation (EN)
