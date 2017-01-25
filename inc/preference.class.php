@@ -133,9 +133,60 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
    function showFormDefault() {
       $CONFIG = $this->preferences;
 
+      echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __('New ticket') . "</td></tr>";
       echo "<tr class='tab_bg_2'>";
-      echo "<td width='30%'> " . __('Notifications for my changes') . "</td><td  width='20%'>";
-      Dropdown::showYesNo("notification_my_changes", $CONFIG["notification_my_changes"]);
+      echo "<td> " . __bn('Show notifications') . "</td><td>";
+      Dropdown::showYesNo("show_new_ticket", $CONFIG["show_new_ticket"]);
+      echo "</td><td> " . __('Notifications for my changes') . "</td><td>";
+      Dropdown::showYesNo("my_changes_new_ticket", $CONFIG["my_changes_new_ticket"]);
+      echo "</td></tr>";
+
+      echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __('Assigned to technicians') . "</td></tr>";
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Show notifications') . "</td><td>";
+      Dropdown::showYesNo("show_assigned_ticket", $CONFIG["show_assigned_ticket"]);
+      echo "</td><td> " . __('Notifications for my changes') . "</td><td>";
+      Dropdown::showYesNo("my_changes_assigned_ticket", $CONFIG["my_changes_assigned_ticket"]);
+      echo "</td></tr>";
+
+      echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __('Assigned to groups') . "</td></tr>";
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Show notifications') . "</td><td>";
+      Dropdown::showYesNo("show_assigned_group_ticket", $CONFIG["show_assigned_group_ticket"]);
+      echo "</td><td> " . __('Notifications for my changes') . "</td><td>";
+      Dropdown::showYesNo("my_changes_assigned_group_ticket", $CONFIG["my_changes_assigned_group_ticket"]);
+      echo "</td></tr>";
+
+      echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __('New followup') . "</td></tr>";
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Show notifications') . "</td><td>";
+      Dropdown::showYesNo("show_ticket_followup", $CONFIG["show_ticket_followup"]);
+      echo "</td><td> " . __('Notifications for my changes') . "</td><td>";
+      Dropdown::showYesNo("my_changes_ticket_followup", $CONFIG["my_changes_ticket_followup"]);
+      echo "</td></tr>";
+
+      echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __('Validation request') . "</td></tr>";
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Show notifications') . "</td><td>";
+      Dropdown::showYesNo("show_ticket_validation", $CONFIG["show_ticket_validation"]);
+      echo "</td><td> " . __('Notifications for my changes') . "</td><td>";
+      Dropdown::showYesNo("my_changes_ticket_validation", $CONFIG["my_changes_ticket_validation"]);
+      echo "</td></tr>";
+
+      echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __bn('Ticket status updated') . "</td></tr>";
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Show notifications') . "</td><td>";
+      Dropdown::showYesNo("show_ticket_status", $CONFIG["show_ticket_status"]);
+      echo "</td><td> " . __('Notifications for my changes') . "</td><td>";
+      Dropdown::showYesNo("my_changes_ticket_status", $CONFIG["my_changes_ticket_status"]);
+      echo "</td></tr>";
+
+      echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __('New task') . "</td></tr>";
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Show notifications') . "</td><td>";
+      Dropdown::showYesNo("show_ticket_task", $CONFIG["show_ticket_task"]);
+      echo "</td><td> " . __('Notifications for my changes') . "</td><td>";
+      Dropdown::showYesNo("my_changes_ticket_task", $CONFIG["my_changes_ticket_task"]);
       echo "</td></tr>";
    }
 

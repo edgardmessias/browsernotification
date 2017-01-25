@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-01-23 23:07-0200\n"
-"PO-Revision-Date: 2017-01-23 23:07-0200\n"
+"POT-Creation-Date: 2017-01-24 23:04-0200\n"
+"PO-Revision-Date: 2017-01-24 23:04-0200\n"
 "Last-Translator: Edgard Lorraine Messias <edgardmessias@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -17,22 +17,37 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../browsernotification/inc/config.class.php:8
-#: ../browsernotification/setup.php:28
+#: ../browsernotification/inc/preference.class.php:50
+#: ../browsernotification/setup.php:37
 msgid "Browser Notification"
 msgstr "Notificação do navegador"
 
-#: ../browsernotification/inc/config.class.php:48
+#: ../browsernotification/inc/config.class.php:56
 msgid "Ignore deleted items?"
 msgstr "Ignorar itens apagados?"
 
-#: ../browsernotification/inc/config.class.php:50
+#: ../browsernotification/inc/config.class.php:58
 msgid "Time to check for new notifications (in seconds)"
 msgstr "Tempo para verificar novas notificações (em segundos)"
 
-#: ../browsernotification/inc/config.class.php:55
+#: ../browsernotification/inc/config.class.php:63
 msgid "URL of the icon"
 msgstr "URL do ícone"
 
-#: ../browsernotification/setup.php:39
+#: ../browsernotification/inc/preference.class.php:138
+#: ../browsernotification/inc/preference.class.php:146
+#: ../browsernotification/inc/preference.class.php:154
+#: ../browsernotification/inc/preference.class.php:162
+#: ../browsernotification/inc/preference.class.php:170
+#: ../browsernotification/inc/preference.class.php:178
+#: ../browsernotification/inc/preference.class.php:186
+msgid "Show notifications"
+msgstr "Mostrar notificações"
+
+#: ../browsernotification/inc/preference.class.php:176
+msgid "Ticket status updated"
+msgstr "Status do chamado atualizado"
+
+#: ../browsernotification/setup.php:48
 msgid "This plugin requires GLPI >= 9.1"
 msgstr "Este plugin requer GLPI >= 9.1"

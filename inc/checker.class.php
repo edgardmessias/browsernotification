@@ -87,7 +87,7 @@ LIMIT $limit";
       if ($CFG_BROWSER_NOTIF['ignore_deleted_items']) {
          $where[] = "`$table`.is_deleted = 0"; //Not deleted
       }
-      if (!$CFG_BROWSER_NOTIF['notification_my_changes']) {
+      if (!$CFG_BROWSER_NOTIF['my_changes_new_ticket']) {
          $where[] = "`$table`.users_id_recipient <> " . Session::getLoginUserID(); //Ignore current user
       }
       //Join user
@@ -164,7 +164,7 @@ LIMIT $limit";
       if ($CFG_BROWSER_NOTIF['ignore_deleted_items']) {
          $where[] = "`glpi_tickets`.is_deleted = 0"; //Not deleted
       }
-      if (!$CFG_BROWSER_NOTIF['notification_my_changes']) {
+      if (!$CFG_BROWSER_NOTIF['my_changes_assigned_ticket']) {
          $where[] = "`glpi_tickets`.users_id_lastupdater <> " . Session::getLoginUserID(); //Ignore current user
       }
       //
@@ -202,7 +202,7 @@ LIMIT $limit";
       if ($CFG_BROWSER_NOTIF['ignore_deleted_items']) {
          $where[] = "`glpi_tickets`.is_deleted = 0"; //Not deleted
       }
-      if (!$CFG_BROWSER_NOTIF['notification_my_changes']) {
+      if (!$CFG_BROWSER_NOTIF['my_changes_assigned_group_ticket']) {
          $where[] = "`glpi_tickets`.users_id_lastupdater <> " . Session::getLoginUserID(); //Ignore current user
       }
       //
@@ -233,7 +233,7 @@ LIMIT $limit";
       $select[] = "`$table`.content";
       $select[] = "`$table`.is_private";
 
-      if (!$CFG_BROWSER_NOTIF['notification_my_changes']) {
+      if (!$CFG_BROWSER_NOTIF['my_changes_ticket_followup']) {
          $where[] = "`$table`.users_id <> " . Session::getLoginUserID(); //Ignore current user
       }
 
@@ -297,7 +297,7 @@ LIMIT $limit";
       $select[] = "`$table`.comment_submission";
       $select[] = "`$table`.status";
 
-      if (!$CFG_BROWSER_NOTIF['notification_my_changes']) {
+      if (!$CFG_BROWSER_NOTIF['my_changes_ticket_validation']) {
          $where[] = "`$table`.users_id <> " . Session::getLoginUserID(); //Ignore current user
       }
       $where[] = "`$table`.users_id_validate = " . Session::getLoginUserID(); //User to validate
@@ -353,7 +353,7 @@ LIMIT $limit";
 
       $where[] = "`$table`.itemtype = 'Ticket'"; //Only ticket type
       $where[] = "`$table`.linked_action = 0"; //Not link action
-      if (!$CFG_BROWSER_NOTIF['notification_my_changes']) {
+      if (!$CFG_BROWSER_NOTIF['my_changes_ticket_status']) {
          $where[] = "`$table`.user_name NOT LIKE '%(" . Session::getLoginUserID() . ")'"; //Ignore current user
       }
       $where[] = "`$table`.id_search_option = 12"; //Status field
@@ -421,7 +421,7 @@ LIMIT $limit";
       $select[] = "`$table`.content";
       $select[] = "`$table`.state";
 
-      if (!$CFG_BROWSER_NOTIF['notification_my_changes']) {
+      if (!$CFG_BROWSER_NOTIF['my_changes_ticket_task']) {
          $where[] = "`$table`.users_id <> " . Session::getLoginUserID(); //Ignore current user
       }
 
