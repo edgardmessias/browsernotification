@@ -2,7 +2,7 @@
 
 include ("../../../inc/includes.php");
 
-Session::checkValidSessionId();
+Session::checkLoginUser();
 
 $return = [];
 

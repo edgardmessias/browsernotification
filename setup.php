@@ -38,14 +38,14 @@ function plugin_version_browsernotification() {
       'version'        => PLUGIN_BROWSERNOTIFICATION_VERSION,
       'author'         => 'Edgard Lorraine Messias',
       'homepage'       => 'https://github.com/edgardmessias/browsernotification',
-      'minGlpiVersion' => '9.1'
+      'minGlpiVersion' => '0.85'
    );
 }
 
 // Optional : check prerequisites before install : may print errors or add to message after redirect
 function plugin_browsernotification_check_prerequisites() {
-   if (version_compare(GLPI_VERSION, '9.1', 'lt')) {
-      echo __bn("This plugin requires GLPI >= 9.1");
+   if (version_compare(GLPI_VERSION, '0.85', 'lt')) {
+      echo __bn("This plugin requires GLPI >= 0.85");
       return false;
    } else {
       return true;

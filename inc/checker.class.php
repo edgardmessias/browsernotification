@@ -428,10 +428,13 @@ LIMIT $limit";
       $user_where = [];
       $user_where[] = "`$table`.users_id_tech = " . Session::getLoginUserID(); //User to validate
       //
-      //Show new task from group
-      if (!empty($_SESSION['glpigroups'])) {
-         $group_list = implode(',', $_SESSION['glpigroups']);
-         $user_where[] = "`$table`.groups_id_tech IN ($group_list)";
+
+      if (version_compare(GLPI_VERSION, '9.1', '>=')) {
+         //Show new task from group
+         if (!empty($_SESSION['glpigroups'])) {
+            $group_list = implode(',', $_SESSION['glpigroups']);
+            $user_where[] = "`$table`.groups_id_tech IN ($group_list)";
+         }
       }
 
       $where[] = '(' . implode(" OR ", $user_where) . ')';
