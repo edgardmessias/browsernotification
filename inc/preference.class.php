@@ -145,7 +145,9 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
          'display_emptychoice' => true,
          'emptylabel'          => __('Disabled'),
       ]);
-      echo "</td><td colspan='2'></td></tr>";
+      echo "</td><td>" . __bn('Show an example notification') . "</td><td>";
+         echo "<input type='button' onclick='browsernotification && browsernotification.showExample()' class='submit' value=\"" . __bn('Show example') . "\">";
+      echo "</td></tr>";
 
       echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __('New ticket') . "</td></tr>";
       echo "<tr class='tab_bg_2'>";

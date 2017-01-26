@@ -30,10 +30,9 @@ if ($CFG_BROWSER_NOTIF["icon_url"]) {
    <!--Pequeno truque para formatar em javascript-->
    <script type="text/javascript">
 <?php endif; ?>
-   (function () {
-      var check = new GLPIBrowserNotification(<?php echo json_encode($options) ?>);
-      check.start();
-   })();
+   //global register
+   browsernotification = new GLPIBrowserNotification(<?php echo json_encode($options) ?>);
+   browsernotification.start();
 <?php if (false): ?>
    </script>
 <?php endif; ?>

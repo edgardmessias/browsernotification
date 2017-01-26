@@ -263,6 +263,20 @@ function GLPIBrowserNotification(options) {
       return "Notification" in window && "localStorage" in window;
    };
 
+   this.showExample = function () {
+      if (!this.isSupported()) {
+         alert('Not supported');
+         return false;
+      }
+
+      var notification = new Notification('Example notification', {
+         body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+         icon: self.options.icon
+      });
+
+      playAudio();
+   };
+
 }
 
 GLPIBrowserNotification.default = {
