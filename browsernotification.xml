@@ -60,6 +60,12 @@ This plugin allow your browser to show notifications for GLPI
             <compatibility>0.90</compatibility>
             <compatibility>0.85</compatibility>
         </version>
+        <version>
+            <num>0.3.0</num>
+            <compatibility>9.1</compatibility>
+            <compatibility>0.90</compatibility>
+            <compatibility>0.85</compatibility>
+        </version>
     </versions>
     <langs>
         <lang>Any</lang>
