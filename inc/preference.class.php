@@ -133,6 +133,20 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
    function showFormDefault() {
       $CONFIG = $this->preferences;
 
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Notification sound') . "</td><td>";
+      Dropdown::showFromArray("sound", [
+         'sound_a' => __bn('Sound') . ' A',
+         'sound_b' => __bn('Sound') . ' B',
+         'sound_c' => __bn('Sound') . ' C',
+         'sound_d' => __bn('Sound') . ' D',
+            ], [
+         'value'               => $CONFIG["sound"],
+         'display_emptychoice' => true,
+         'emptylabel'          => __('Disabled'),
+      ]);
+      echo "</td><td colspan='2'></td></tr>";
+
       echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __('New ticket') . "</td></tr>";
       echo "<tr class='tab_bg_2'>";
       echo "<td> " . __bn('Show notifications') . "</td><td>";

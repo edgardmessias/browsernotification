@@ -1,53 +1,57 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-01-24 23:04-0200\n"
-"PO-Revision-Date: 2017-01-24 23:04-0200\n"
-"Last-Translator: Edgard Lorraine Messias <edgardmessias@gmail.com>\n"
+"POT-Creation-Date: 2017-01-26 14:29-0300\n"
+"PO-Revision-Date: 2017-01-26 14:29-0300\n"
+"Last-Translator: Edgard Lorraine Messias <edgard.cpd@romera.com.br>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.11\n"
-"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 1.7.4\n"
+"X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-KeywordsList: __bn\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../browsernotification/inc/config.class.php:8
-#: ../browsernotification/inc/preference.class.php:50
-#: ../browsernotification/setup.php:37
+#: ../inc/config.class.php:8 ../inc/preference.class.php:50 ../setup.php:37
 msgid "Browser Notification"
 msgstr "Notificação do navegador"
 
-#: ../browsernotification/inc/config.class.php:56
+#: ../inc/config.class.php:56
 msgid "Ignore deleted items?"
 msgstr "Ignorar itens apagados?"
 
-#: ../browsernotification/inc/config.class.php:58
+#: ../inc/config.class.php:58
 msgid "Time to check for new notifications (in seconds)"
 msgstr "Tempo para verificar novas notificações (em segundos)"
 
-#: ../browsernotification/inc/config.class.php:63
+#: ../inc/config.class.php:63
 msgid "URL of the icon"
 msgstr "URL do ícone"
 
-#: ../browsernotification/inc/preference.class.php:138
-#: ../browsernotification/inc/preference.class.php:146
-#: ../browsernotification/inc/preference.class.php:154
-#: ../browsernotification/inc/preference.class.php:162
-#: ../browsernotification/inc/preference.class.php:170
-#: ../browsernotification/inc/preference.class.php:178
-#: ../browsernotification/inc/preference.class.php:186
+#: ../inc/preference.class.php:137
+msgid "Notification sound"
+msgstr "Som de notificação"
+
+#: ../inc/preference.class.php:139 ../inc/preference.class.php:140
+#: ../inc/preference.class.php:141 ../inc/preference.class.php:142
+msgid "Sound"
+msgstr "Som"
+
+#: ../inc/preference.class.php:152 ../inc/preference.class.php:160
+#: ../inc/preference.class.php:168 ../inc/preference.class.php:176
+#: ../inc/preference.class.php:184 ../inc/preference.class.php:192
+#: ../inc/preference.class.php:200
 msgid "Show notifications"
 msgstr "Mostrar notificações"
 
-#: ../browsernotification/inc/preference.class.php:176
+#: ../inc/preference.class.php:190
 msgid "Ticket status updated"
 msgstr "Status do chamado atualizado"
 
-#: ../browsernotification/setup.php:48
-msgid "This plugin requires GLPI >= 9.1"
-msgstr "Este plugin requer GLPI >= 9.1"
+#: ../setup.php:48
+msgid "This plugin requires GLPI >= 0.85"
+msgstr "Este plugin requer GLPI >= 0.85"

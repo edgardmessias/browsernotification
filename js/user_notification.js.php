@@ -14,6 +14,14 @@ $options = [
    'locale'   => strtolower($CFG_GLPI["languages"][$_SESSION['glpilanguage']][2]),
 ];
 
+if ($CFG_BROWSER_NOTIF['sound']) {
+   $options['sound'] = [
+      $CFG_GLPI['root_doc'] . '/plugins/browsernotification/sound/' . $CFG_BROWSER_NOTIF['sound'] . '.mp3',
+      $CFG_GLPI['root_doc'] . '/plugins/browsernotification/sound/' . $CFG_BROWSER_NOTIF['sound'] . '.ogg',
+      $CFG_GLPI['root_doc'] . '/plugins/browsernotification/sound/' . $CFG_BROWSER_NOTIF['sound'] . '.wav',
+   ];
+}
+
 if ($CFG_BROWSER_NOTIF["icon_url"]) {
    $options['icon'] = $CFG_BROWSER_NOTIF["icon_url"];
 }
@@ -23,8 +31,8 @@ if ($CFG_BROWSER_NOTIF["icon_url"]) {
    <script type="text/javascript">
 <?php endif; ?>
    (function () {
-       var check = new GLPIBrowserNotification(<?php echo json_encode($options) ?>);
-       check.start();
+      var check = new GLPIBrowserNotification(<?php echo json_encode($options) ?>);
+      check.start();
    })();
 <?php if (false): ?>
    </script>

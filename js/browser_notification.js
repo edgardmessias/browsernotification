@@ -107,6 +107,41 @@ function GLPIBrowserNotification(options) {
 
    }
 
+   var audioElement = false;
+
+   if (self.options.sound && ('Audio' in window)) {
+      audioElement = new Audio();
+
+      if (typeof self.options.audio === 'string') {
+         audioElement.src = self.options.sound;
+      } else if (self.options.sound instanceof Array) {
+         var audios = self.options.sound;
+
+         $.each(audios, function (i, v) {
+            var type = null;
+            if (/\.mp3$/.test(v)) {
+               type = 'audio/mpeg';
+            } else if (/\.ogg/.test(v)) {
+               type = 'audio/ogg';
+            } else if (/\.wav$/.test(v)) {
+               type = 'audio/wav';
+            }
+
+            $(audioElement).append($('<source />', {
+               src: v,
+               type: type
+            }));
+         });
+      }
+   }
+
+   function playAudio() {
+      if (!audioElement) {
+         return false;
+      }
+      audioElement.play();
+   }
+
    this.checkNewNotifications = function () {
       if (!this.isSupported()) {
          return false;
@@ -131,6 +166,7 @@ function GLPIBrowserNotification(options) {
 
          localStorage.setItem(last_id_key, JSON.stringify(new_last_ids));
 
+         var has_notif = false;
          for (var type in data) {
             if (data[type] === false) {
                continue;
@@ -156,6 +192,11 @@ function GLPIBrowserNotification(options) {
             } else {
                showNotification(type, {count: count}, 'count');
             }
+            has_notif = true;
+         }
+
+         if (has_notif) {
+            playAudio();
          }
 
 
@@ -228,6 +269,7 @@ GLPIBrowserNotification.default = {
    user_id: 0,
    base_url: '',
    interval: 10000,
+   sound: false,
    locale: 'en-us',
    urls: {
       new_ticket: {
