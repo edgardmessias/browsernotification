@@ -14,12 +14,20 @@ $options = [
    'locale'   => strtolower($CFG_GLPI["languages"][$_SESSION['glpilanguage']][2]),
 ];
 
-if ($CFG_BROWSER_NOTIF['sound']) {
-   $options['sound'] = [
-      $CFG_GLPI['root_doc'] . '/plugins/browsernotification/sound/' . $CFG_BROWSER_NOTIF['sound'] . '.mp3',
-      $CFG_GLPI['root_doc'] . '/plugins/browsernotification/sound/' . $CFG_BROWSER_NOTIF['sound'] . '.ogg',
-      $CFG_GLPI['root_doc'] . '/plugins/browsernotification/sound/' . $CFG_BROWSER_NOTIF['sound'] . '.wav',
-   ];
+$options['sound'] = [
+   'default' => $CFG_BROWSER_NOTIF['sound'] ? $CFG_BROWSER_NOTIF['sound'] : false,
+];
+
+foreach ($CFG_BROWSER_NOTIF as $key => $value) {
+   if(strncmp($key, 'sound_', 6) !== 0){
+      continue;
+   }
+   //if default, ignore
+   if($value === 'default'){
+      continue;
+   }
+   $name = substr($key, 6);
+   $options['sound'][$name] = $value ? $value : false;
 }
 
 if ($CFG_BROWSER_NOTIF["icon_url"]) {

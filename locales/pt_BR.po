@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-01-26 14:29-0300\n"
-"PO-Revision-Date: 2017-01-26 14:29-0300\n"
+"POT-Creation-Date: 2017-01-27 15:10-0300\n"
+"PO-Revision-Date: 2017-01-27 15:11-0300\n"
 "Last-Translator: Edgard Lorraine Messias <edgard.cpd@romera.com.br>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -32,23 +32,38 @@ msgstr "Tempo para verificar novas notificações (em segundos)"
 msgid "URL of the icon"
 msgstr "URL do ícone"
 
-#: ../inc/preference.class.php:137
-msgid "Notification sound"
-msgstr "Som de notificação"
-
+#: ../inc/preference.class.php:137 ../inc/preference.class.php:138
 #: ../inc/preference.class.php:139 ../inc/preference.class.php:140
-#: ../inc/preference.class.php:141 ../inc/preference.class.php:142
 msgid "Sound"
 msgstr "Som"
 
-#: ../inc/preference.class.php:152 ../inc/preference.class.php:160
-#: ../inc/preference.class.php:168 ../inc/preference.class.php:176
-#: ../inc/preference.class.php:184 ../inc/preference.class.php:192
-#: ../inc/preference.class.php:200
+#: ../inc/preference.class.php:144
+msgid "Default notification sound"
+msgstr "Som padrão de notificação"
+
+#: ../inc/preference.class.php:152
+msgid "Show an example notification"
+msgstr "Exibir um exemplo de notificação"
+
+#: ../inc/preference.class.php:153
+msgid "Show example"
+msgstr "Exibir exemplo"
+
+#: ../inc/preference.class.php:161 ../inc/preference.class.php:178
+#: ../inc/preference.class.php:195 ../inc/preference.class.php:212
+#: ../inc/preference.class.php:229 ../inc/preference.class.php:246
+#: ../inc/preference.class.php:263
 msgid "Show notifications"
 msgstr "Mostrar notificações"
 
-#: ../inc/preference.class.php:190
+#: ../inc/preference.class.php:167 ../inc/preference.class.php:184
+#: ../inc/preference.class.php:201 ../inc/preference.class.php:218
+#: ../inc/preference.class.php:235 ../inc/preference.class.php:252
+#: ../inc/preference.class.php:269
+msgid "Notification sound"
+msgstr "Som de notificação"
+
+#: ../inc/preference.class.php:244
 msgid "Ticket status updated"
 msgstr "Status do chamado atualizado"
 

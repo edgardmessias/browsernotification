@@ -133,22 +133,29 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
    function showFormDefault() {
       $CONFIG = $this->preferences;
 
-      echo "<tr class='tab_bg_2'>";
-      echo "<td> " . __bn('Notification sound') . "</td><td>";
-      Dropdown::showFromArray("sound", [
+      $sounds = [
          'sound_a' => __bn('Sound') . ' A',
          'sound_b' => __bn('Sound') . ' B',
          'sound_c' => __bn('Sound') . ' C',
          'sound_d' => __bn('Sound') . ' D',
-            ], [
+      ];
+
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Default notification sound') . "</td><td>";
+      $rand_sound = mt_rand();
+      Dropdown::showFromArray("sound", $sounds, [
          'value'               => $CONFIG["sound"],
          'display_emptychoice' => true,
          'emptylabel'          => __('Disabled'),
+         'rand'                => $rand_sound,
       ]);
       echo "</td><td>" . __bn('Show an example notification') . "</td><td>";
-         echo "<input type='button' onclick='browsernotification && browsernotification.showExample()' class='submit' value=\"" . __bn('Show example') . "\">";
+      echo "<input type='button' onclick='browsernotification && browsernotification.showExample($(\"#dropdown_sound" . $rand_sound . "\").val())' class='submit' value=\"" . __bn('Show example') . "\">";
       echo "</td></tr>";
 
+      $sounds['default'] = __('Default value');
+
+      //New Ticket
       echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __('New ticket') . "</td></tr>";
       echo "<tr class='tab_bg_2'>";
       echo "<td> " . __bn('Show notifications') . "</td><td>";
@@ -156,7 +163,16 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
       echo "</td><td> " . __('Notifications for my changes') . "</td><td>";
       Dropdown::showYesNo("my_changes_new_ticket", $CONFIG["my_changes_new_ticket"]);
       echo "</td></tr>";
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Notification sound') . "</td><td>";
+      Dropdown::showFromArray("sound_new_ticket", $sounds, [
+         'value'               => $CONFIG["sound_new_ticket"],
+         'display_emptychoice' => true,
+         'emptylabel'          => __('Disabled'),
+      ]);
+      echo "</td><td colspan='2'></td></tr>";
 
+      //Assigned to technicians
       echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __('Assigned to technicians') . "</td></tr>";
       echo "<tr class='tab_bg_2'>";
       echo "<td> " . __bn('Show notifications') . "</td><td>";
@@ -164,7 +180,16 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
       echo "</td><td> " . __('Notifications for my changes') . "</td><td>";
       Dropdown::showYesNo("my_changes_assigned_ticket", $CONFIG["my_changes_assigned_ticket"]);
       echo "</td></tr>";
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Notification sound') . "</td><td>";
+      Dropdown::showFromArray("sound_assigned_ticket", $sounds, [
+         'value'               => $CONFIG["sound_assigned_ticket"],
+         'display_emptychoice' => true,
+         'emptylabel'          => __('Disabled'),
+      ]);
+      echo "</td><td colspan='2'></td></tr>";
 
+      //Assigned to groups
       echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __('Assigned to groups') . "</td></tr>";
       echo "<tr class='tab_bg_2'>";
       echo "<td> " . __bn('Show notifications') . "</td><td>";
@@ -172,7 +197,16 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
       echo "</td><td> " . __('Notifications for my changes') . "</td><td>";
       Dropdown::showYesNo("my_changes_assigned_group_ticket", $CONFIG["my_changes_assigned_group_ticket"]);
       echo "</td></tr>";
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Notification sound') . "</td><td>";
+      Dropdown::showFromArray("sound_assigned_group_ticket", $sounds, [
+         'value'               => $CONFIG["sound_assigned_group_ticket"],
+         'display_emptychoice' => true,
+         'emptylabel'          => __('Disabled'),
+      ]);
+      echo "</td><td colspan='2'></td></tr>";
 
+      //New followup
       echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __('New followup') . "</td></tr>";
       echo "<tr class='tab_bg_2'>";
       echo "<td> " . __bn('Show notifications') . "</td><td>";
@@ -180,7 +214,16 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
       echo "</td><td> " . __('Notifications for my changes') . "</td><td>";
       Dropdown::showYesNo("my_changes_ticket_followup", $CONFIG["my_changes_ticket_followup"]);
       echo "</td></tr>";
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Notification sound') . "</td><td>";
+      Dropdown::showFromArray("sound_ticket_followup", $sounds, [
+         'value'               => $CONFIG["sound_ticket_followup"],
+         'display_emptychoice' => true,
+         'emptylabel'          => __('Disabled'),
+      ]);
+      echo "</td><td colspan='2'></td></tr>";
 
+      //Validation request
       echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __('Validation request') . "</td></tr>";
       echo "<tr class='tab_bg_2'>";
       echo "<td> " . __bn('Show notifications') . "</td><td>";
@@ -188,7 +231,16 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
       echo "</td><td> " . __('Notifications for my changes') . "</td><td>";
       Dropdown::showYesNo("my_changes_ticket_validation", $CONFIG["my_changes_ticket_validation"]);
       echo "</td></tr>";
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Notification sound') . "</td><td>";
+      Dropdown::showFromArray("sound_ticket_validation", $sounds, [
+         'value'               => $CONFIG["sound_ticket_validation"],
+         'display_emptychoice' => true,
+         'emptylabel'          => __('Disabled'),
+      ]);
+      echo "</td><td colspan='2'></td></tr>";
 
+      //Ticket status updated
       echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __bn('Ticket status updated') . "</td></tr>";
       echo "<tr class='tab_bg_2'>";
       echo "<td> " . __bn('Show notifications') . "</td><td>";
@@ -196,7 +248,16 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
       echo "</td><td> " . __('Notifications for my changes') . "</td><td>";
       Dropdown::showYesNo("my_changes_ticket_status", $CONFIG["my_changes_ticket_status"]);
       echo "</td></tr>";
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Notification sound') . "</td><td>";
+      Dropdown::showFromArray("sound_ticket_status", $sounds, [
+         'value'               => $CONFIG["sound_ticket_status"],
+         'display_emptychoice' => true,
+         'emptylabel'          => __('Disabled'),
+      ]);
+      echo "</td><td colspan='2'></td></tr>";
 
+      //New task
       echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __('New task') . "</td></tr>";
       echo "<tr class='tab_bg_2'>";
       echo "<td> " . __bn('Show notifications') . "</td><td>";
@@ -204,6 +265,14 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
       echo "</td><td> " . __('Notifications for my changes') . "</td><td>";
       Dropdown::showYesNo("my_changes_ticket_task", $CONFIG["my_changes_ticket_task"]);
       echo "</td></tr>";
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Notification sound') . "</td><td>";
+      Dropdown::showFromArray("sound_ticket_task", $sounds, [
+         'value'               => $CONFIG["sound_ticket_task"],
+         'display_emptychoice' => true,
+         'emptylabel'          => __('Disabled'),
+      ]);
+      echo "</td><td colspan='2'></td></tr>";
    }
 
 }

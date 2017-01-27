@@ -1,6 +1,6 @@
 <?php
 
-define('PLUGIN_BROWSERNOTIFICATION_VERSION', '0.3.0');
+define('PLUGIN_BROWSERNOTIFICATION_VERSION', '0.4.0');
 
 // Init the hooks of the plugins -Needed
 function plugin_init_browsernotification() {

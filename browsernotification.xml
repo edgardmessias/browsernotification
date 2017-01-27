@@ -30,6 +30,7 @@ This plugin allow your browser to show notifications for GLPI
  * Low resource usage
  * Allow configuration
  * Notification in all browsers in which you are connected
+ * Play sound
 
 # TODO
 * [x] More options for configuration page
@@ -56,15 +57,21 @@ This plugin allow your browser to show notifications for GLPI
         </version>
         <version>
             <num>0.2.0</num>
-            <compatibility>9.1</compatibility>
-            <compatibility>0.90</compatibility>
             <compatibility>0.85</compatibility>
+            <compatibility>0.90</compatibility>
+            <compatibility>9.1</compatibility>
         </version>
         <version>
             <num>0.3.0</num>
-            <compatibility>9.1</compatibility>
-            <compatibility>0.90</compatibility>
             <compatibility>0.85</compatibility>
+            <compatibility>0.90</compatibility>
+            <compatibility>9.1</compatibility>
+        </version>
+        <version>
+            <num>0.4.0</num>
+            <compatibility>0.85</compatibility>
+            <compatibility>0.90</compatibility>
+            <compatibility>9.1</compatibility>
         </version>
     </versions>
     <langs>

@@ -18,6 +18,7 @@ This plugin allow your browser to show notifications for GLPI
  * Low resource usage
  * Allow configuration
  * Notification in all browsers in which you are connected
+ * Play sound
 
 # TODO
 * [x] More options for configuration page

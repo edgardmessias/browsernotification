@@ -6,6 +6,7 @@ function GLPIBrowserNotification(options) {
 
    var self = this;
    var _queue = $('<div />');
+   var _queue_audio = $('<div />');
    var _interval = null;
    var _texts = {};
 
@@ -56,7 +57,10 @@ function GLPIBrowserNotification(options) {
       var content_json = localStorage.getItem(last_id_key);
 
       if (content_json) {
-         return JSON.parse(content_json);
+         try {
+            return JSON.parse(content_json);
+         } catch (e) {
+         }
       }
 
       return {};
@@ -107,39 +111,31 @@ function GLPIBrowserNotification(options) {
 
    }
 
-   var audioElement = false;
-
-   if (self.options.sound && ('Audio' in window)) {
-      audioElement = new Audio();
-
-      if (typeof self.options.audio === 'string') {
-         audioElement.src = self.options.sound;
-      } else if (self.options.sound instanceof Array) {
-         var audios = self.options.sound;
-
-         $.each(audios, function (i, v) {
-            var type = null;
-            if (/\.mp3$/.test(v)) {
-               type = 'audio/mpeg';
-            } else if (/\.ogg/.test(v)) {
-               type = 'audio/ogg';
-            } else if (/\.wav$/.test(v)) {
-               type = 'audio/wav';
-            }
-
-            $(audioElement).append($('<source />', {
-               src: v,
-               type: type
-            }));
-         });
-      }
-   }
-
-   function playAudio() {
-      if (!audioElement) {
+   function playAudio(sound) {
+      if (!sound || !('Audio' in window)) {
          return false;
       }
-      audioElement.play();
+
+      var audioElement = new Audio();
+
+      $(audioElement).append($('<source />', {
+         src: self.options.base_url + '/plugins/browsernotification/sound/' + sound + '.mp3',
+         type: 'audio/mpeg'
+      }));
+      $(audioElement).append($('<source />', {
+         src: self.options.base_url + '/plugins/browsernotification/sound/' + sound + '.ogg',
+         type: 'audio/ogg'
+      }));
+      
+      //Queue multiple sounds
+      _queue_audio.queue(function () {
+         var queue = this;
+         audioElement.onended = function () {
+            $(queue).dequeue();
+         };
+
+         audioElement.play();
+      });
    }
 
    this.checkNewNotifications = function () {
@@ -166,7 +162,6 @@ function GLPIBrowserNotification(options) {
 
          localStorage.setItem(last_id_key, JSON.stringify(new_last_ids));
 
-         var has_notif = false;
          for (var type in data) {
             if (data[type] === false) {
                continue;
@@ -192,13 +187,11 @@ function GLPIBrowserNotification(options) {
             } else {
                showNotification(type, {count: count}, 'count');
             }
-            has_notif = true;
-         }
 
-         if (has_notif) {
-            playAudio();
+            if (self.options.sound[type] !== false) {
+               playAudio(self.options.sound[type] || self.options.sound.default);
+            }
          }
-
 
       });
    };
@@ -263,7 +256,7 @@ function GLPIBrowserNotification(options) {
       return "Notification" in window && "localStorage" in window;
    };
 
-   this.showExample = function () {
+   this.showExample = function (sound) {
       if (!this.isSupported()) {
          alert('Not supported');
          return false;
@@ -274,7 +267,7 @@ function GLPIBrowserNotification(options) {
          icon: self.options.icon
       });
 
-      playAudio();
+      playAudio(sound);
    };
 
 }
@@ -283,7 +276,9 @@ GLPIBrowserNotification.default = {
    user_id: 0,
    base_url: '',
    interval: 10000,
-   sound: false,
+   sound: {
+      default: false
+   },
    locale: 'en-us',
    urls: {
       new_ticket: {
