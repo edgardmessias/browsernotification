@@ -22,6 +22,8 @@ function plugin_init_browsernotification() {
    Plugin::registerClass('PluginBrowsernotificationPreference', [
       'addtabon' => ['Preference', 'User']
    ]);
+   
+   $PLUGIN_HOOKS['config_page']['browsernotification'] = '../../front/config.form.php?forcetab=PluginBrowsernotificationConfig$1';
 
    $locale = strtolower($CFG_GLPI["languages"][$_SESSION['glpilanguage']][2]);
 
