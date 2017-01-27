@@ -10,7 +10,7 @@ header('Content-Type:application/javascript');
 $options = [
    'user_id'  => Session::getLoginUserID(),
    'base_url' => $CFG_GLPI['root_doc'],
-   'interval' => $CFG_BROWSER_NOTIF['check_interval'] * 1000,
+   'interval' => ($CFG_BROWSER_NOTIF['check_interval'] < 5 ? $CFG_BROWSER_NOTIF['check_interval'] : 5) * 1000,
    'locale'   => strtolower($CFG_GLPI["languages"][$_SESSION['glpilanguage']][2]),
 ];
 
@@ -19,11 +19,11 @@ $options['sound'] = [
 ];
 
 foreach ($CFG_BROWSER_NOTIF as $key => $value) {
-   if(strncmp($key, 'sound_', 6) !== 0){
+   if (strncmp($key, 'sound_', 6) !== 0) {
       continue;
    }
    //if default, ignore
-   if($value === 'default'){
+   if ($value === 'default') {
       continue;
    }
    $name = substr($key, 6);
