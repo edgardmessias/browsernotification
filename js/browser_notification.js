@@ -93,6 +93,10 @@
             setTimeout(function () {
                $(queue).dequeue();
             }, 100);
+            
+            if (self.options.sound[data_type] !== false) {
+               playAudio(self.options.sound[data_type] || self.options.sound.default);
+            }
 
             var notification = new Notification(title, {
                body: body,
@@ -121,23 +125,29 @@
             return false;
          }
 
-         var audioElement = new Audio();
-
-         $(audioElement).append($('<source />', {
-            src: self.options.base_url + '/plugins/browsernotification/sound/' + sound + '.mp3',
-            type: 'audio/mpeg'
-         }));
-         $(audioElement).append($('<source />', {
-            src: self.options.base_url + '/plugins/browsernotification/sound/' + sound + '.ogg',
-            type: 'audio/ogg'
-         }));
-
          //Queue multiple sounds
          _queue_audio.queue(function () {
             var queue = this;
+
+            var audioElement = new Audio();
+
             audioElement.onended = function () {
                $(queue).dequeue();
             };
+
+            $(audioElement).append($('<source />', {
+               src: self.options.base_url + '/plugins/browsernotification/sound/' + sound + '.mp3',
+               type: 'audio/mpeg'
+            }));
+            $(audioElement).append($('<source />', {
+               src: self.options.base_url + '/plugins/browsernotification/sound/' + sound + '.ogg',
+               type: 'audio/ogg'
+            }));
+
+            //IF not found audio, play next;
+            $(audioElement).find('source:last').on('error', function () {
+               $(queue).dequeue();
+            });
 
             audioElement.play();
          });
@@ -193,9 +203,6 @@
                   showNotification(type, {count: count}, 'count');
                }
 
-               if (self.options.sound[type] !== false) {
-                  playAudio(self.options.sound[type] || self.options.sound.default);
-               }
             }
 
          });
@@ -272,6 +279,10 @@
             icon: self.options.icon
          });
 
+         //For disabled state
+         if (sound === '0') {
+            sound = false;
+         }
          playAudio(sound);
       };
 
