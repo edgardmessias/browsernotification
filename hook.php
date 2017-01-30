@@ -28,6 +28,9 @@ function plugin_browsernotification_install() {
       'show_ticket_task'                 => 1,
       'my_changes_ticket_task'           => 0,
       'sound_ticket_task'                => 'default',
+      'show_ticket_document'             => 1,
+      'my_changes_ticket_document'       => 0,
+      'sound_ticket_document'            => 'default',
    ];
 
    $current = Config::getConfigurationValues('browsernotification');

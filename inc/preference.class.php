@@ -273,6 +273,23 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
          'emptylabel'          => __('Disabled'),
       ]);
       echo "</td><td colspan='2'></td></tr>";
+
+      //New document
+      echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __('Add a document') . "</td></tr>";
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Show notifications') . "</td><td>";
+      Dropdown::showYesNo("show_ticket_document", $CONFIG["show_ticket_document"]);
+      echo "</td><td> " . __('Notifications for my changes') . "</td><td>";
+      Dropdown::showYesNo("my_changes_ticket_document", $CONFIG["my_changes_ticket_document"]);
+      echo "</td></tr>";
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Notification sound') . "</td><td>";
+      Dropdown::showFromArray("sound_ticket_document", $sounds, [
+         'value'               => $CONFIG["sound_ticket_document"],
+         'display_emptychoice' => true,
+         'emptylabel'          => __('Disabled'),
+      ]);
+      echo "</td><td colspan='2'></td></tr>";
    }
 
 }

@@ -6,7 +6,7 @@
 // 
 //
 
-(function (window, $, Notification) {
+(function (window, $) {
    function GLPIBrowserNotification(options) {
 
       var self = this;
@@ -313,6 +313,10 @@
          ticket_task: {
             item_url: "front/ticket.form.php?id=%ticket_id%&forcetab=Ticket$1",
             count_url: "front/ticket.php?is_deleted=0&sort=97&order=DESC&criteria[0][field]=97&criteria[0][searchtype]=morethan&criteria[0][value]=-1HOUR&start=0"
+         },
+         ticket_document: {
+            item_url: "front/ticket.form.php?id=%ticket_id%&forcetab=Ticket$1",
+            count_url: "front/ticket.php?is_deleted=0&sort=19&order=DESC&criteria[0][field]=119&criteria[0][searchtype]=morethan&criteria[0][value]=&gt;0&start=0"
          }
       },
       texts: {
@@ -358,10 +362,16 @@
                item_body: "New task (%state_text%):\n%content%",
                count_title: "New tasks",
                count_body: "You have %count% new tasks"
+            },
+            ticket_document: {
+               item_title: "New document on ticket #%ticket_id%",
+               item_body: "The document \"%filename%\" has added on ticket #%ticket_id%",
+               count_title: "New documents",
+               count_body: "You have %count% new documents"
             }
          }
       }
    };
 
    window.GLPIBrowserNotification = GLPIBrowserNotification;
-})(window, jQuery, Notification);
+})(window, jQuery);

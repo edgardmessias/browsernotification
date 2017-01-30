@@ -463,4 +463,44 @@ LIMIT $limit";
       return $return;
    }
 
+   public static function getTicketDocument($last_id = 0, $max_items = 3) {
+      global $CFG_BROWSER_NOTIF;
+
+      $table = 'glpi_documents_items';
+
+      $select = [];
+      $join = [];
+      $where = [];
+
+      $select[] = "`$table`.items_id AS ticket_id";
+
+      $join[] = "INNER JOIN `glpi_tickets` ON `glpi_tickets`.id = `$table`.items_id AND `$table`.itemtype = 'Ticket'";
+      if ($CFG_BROWSER_NOTIF['ignore_deleted_items']) {
+         $where[] = "`glpi_tickets`.is_deleted = 0"; //Not deleted
+      }
+      if (!$CFG_BROWSER_NOTIF['my_changes_ticket_document']) {
+         $where[] = "`glpi_tickets`.users_id_lastupdater <> " . Session::getLoginUserID(); //Ignore current user
+      }
+      //Only current and active entities
+      $where[] = getEntitiesRestrictRequest("", $table, '', $_SESSION['glpiactiveentities'], false, true);
+
+      //Only related ticket with user
+      $join[] = "INNER JOIN `glpi_tickets_users` ON `glpi_tickets_users`.tickets_id = `glpi_tickets`.id";
+      $where[] = "`glpi_tickets_users`.users_id = " . Session::getLoginUserID();
+
+      //Join document
+      $join[] = "INNER JOIN `glpi_documents` ON `glpi_documents`.id = `$table`.documents_id";
+      $select[] = "`glpi_documents`.filename";
+
+      //Ignore new ticket with documents
+      if (version_compare(GLPI_VERSION, '9.1', '>=')) {
+         $where[] = "`$table`.date_mod <> `glpi_tickets`.date_creation";
+      } else {
+         //@note IF tickets is updated between checks, user is notified with a new document
+         $where[] = "`$table`.date_mod <> `glpi_tickets`.date_mod";
+      }
+
+      return self::executeQuery($table, $last_id, $select, $where, $join, $max_items);
+   }
+
 }

@@ -44,5 +44,11 @@ GLPIBrowserNotification.default.texts['pt-br'] = {
       item_body: "Nova tarefa (%state_text%):\n%content%",
       count_title: "Novas tarefas",
       count_body: "Você tem %count% novas tarefas"
+   },
+   ticket_document: {
+      item_title: "Novo documento no chamado #%ticket_id%",
+      item_body: "O documento \"%filename%\" foi adicionado no chamado #%ticket_id%",
+      count_title: "Novos documentos",
+      count_body: "Você tem %count% novos documentos"
    }
 };
