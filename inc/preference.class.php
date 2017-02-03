@@ -130,6 +130,30 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
       Html::closeForm();
    }
 
+   private function getSounds() {
+      $sounds_dir = GLPI_ROOT . DIRECTORY_SEPARATOR . 'sounds';
+
+      if (!file_exists($sounds_dir) || !is_dir($sounds_dir)) {
+         return false;
+      }
+
+      $files = scandir($sounds_dir);
+
+      $sounds = [];
+
+      foreach ($files as $file) {
+         if ($file === '.' || $file === '..') {
+            continue;
+         }
+         $sounds[] = pathinfo($sounds_dir . DIRECTORY_SEPARATOR . $file, PATHINFO_FILENAME);
+      }
+
+      $sounds = array_unique($sounds);
+      sort($sounds);
+
+      return $sounds;
+   }
+
    function showFormDefault() {
       $CONFIG = $this->preferences;
 
@@ -139,6 +163,12 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
          'sound_c' => __bn('Sound') . ' C',
          'sound_d' => __bn('Sound') . ' D',
       ];
+
+      $custom_sounds = $this->getSounds();
+
+      foreach ($custom_sounds as $sound) {
+         $sounds['custom_' . $sound] = $sound;
+      }
 
       echo "<tr class='tab_bg_2'>";
       echo "<td> " . __bn('Default notification sound') . "</td><td>";
