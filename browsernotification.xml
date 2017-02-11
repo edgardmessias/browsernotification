@@ -25,6 +25,12 @@ This plugin allow your browser to show notifications for GLPI
  * Users can go to `Preferences > Browser Notification` to configure your settings
  * Note: First notification is skipped.
 
+# Custom Sounds (EN)
+ * Make folder `sounds` in `<GLPI_ROOT>`
+ * Put your sounds in `<GLPI_ROOT>/sounds`. Preferably `MP3`, `OGG` and `WAV`
+ * Configure in `Configuration > General > Browser Notification` or `Preferences > Browser Notification`
+ * Example site with sounds to download: <https://notificationsounds.com/notification-sounds>
+
 # Resources (EN)
  * Allow open multiple browsers or tabs and show only one notification
  * Low resource usage
@@ -33,8 +39,6 @@ This plugin allow your browser to show notifications for GLPI
  * Play sound
 
 # TODO
-* [x] More options for configuration page
-* [x] Configuration per user
 * [ ] User profile permission
 ]]></en>
         </long>
@@ -79,9 +83,16 @@ This plugin allow your browser to show notifications for GLPI
             <compatibility>0.90</compatibility>
             <compatibility>9.1</compatibility>
         </version>
+        <version>
+            <num>1.0.0</num>
+            <compatibility>0.85</compatibility>
+            <compatibility>0.90</compatibility>
+            <compatibility>9.1</compatibility>
+        </version>
     </versions>
     <langs>
-        <lang>Any</lang>
+        <lang>en_US</lang>
+        <lang>pt_BR</lang>
     </langs>
     <license><![CDATA[GPL v2+]]></license>
     <tags>
