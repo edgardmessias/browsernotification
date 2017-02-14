@@ -166,8 +166,10 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
 
       $custom_sounds = $this->getSounds();
 
-      foreach ($custom_sounds as $sound) {
-         $sounds['custom_' . $sound] = $sound;
+      if ($custom_sounds) {
+         foreach ($custom_sounds as $sound) {
+            $sounds['custom_' . $sound] = $sound;
+         }
       }
 
       echo "<tr class='tab_bg_2'>";
