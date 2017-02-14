@@ -25,6 +25,7 @@ This plugin allow your browser to show notifications for GLPI
  * Allow configuration
  * Notification in all browsers in which you are connected
  * Play sound
+ * Show notification for scheduled tasks
 
 # TODO
 * [ ] User profile permission
