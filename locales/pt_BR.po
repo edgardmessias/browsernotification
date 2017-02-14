@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-01-27 15:10-0300\n"
-"PO-Revision-Date: 2017-01-27 15:11-0300\n"
+"POT-Creation-Date: 2017-02-14 11:47-0300\n"
+"PO-Revision-Date: 2017-02-14 11:47-0300\n"
 "Last-Translator: Edgard Lorraine Messias <edgard.cpd@romera.com.br>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../inc/config.class.php:8 ../inc/preference.class.php:50 ../setup.php:37
+#: ../inc/config.class.php:8 ../inc/preference.class.php:50 ../setup.php:39
 msgid "Browser Notification"
 msgstr "Notificação do navegador"
 
@@ -32,41 +32,47 @@ msgstr "Tempo para verificar novas notificações (em segundos)"
 msgid "URL of the icon"
 msgstr "URL do ícone"
 
-#: ../inc/preference.class.php:137 ../inc/preference.class.php:138
-#: ../inc/preference.class.php:139 ../inc/preference.class.php:140
+#: ../inc/preference.class.php:161 ../inc/preference.class.php:162
+#: ../inc/preference.class.php:163 ../inc/preference.class.php:164
 msgid "Sound"
 msgstr "Som"
 
-#: ../inc/preference.class.php:144
+#: ../inc/preference.class.php:174
 msgid "Default notification sound"
 msgstr "Som padrão de notificação"
 
-#: ../inc/preference.class.php:152
+#: ../inc/preference.class.php:182
 msgid "Show an example notification"
 msgstr "Exibir um exemplo de notificação"
 
-#: ../inc/preference.class.php:153
+#: ../inc/preference.class.php:183
 msgid "Show example"
 msgstr "Exibir exemplo"
 
-#: ../inc/preference.class.php:161 ../inc/preference.class.php:178
-#: ../inc/preference.class.php:195 ../inc/preference.class.php:212
-#: ../inc/preference.class.php:229 ../inc/preference.class.php:246
-#: ../inc/preference.class.php:263
+#: ../inc/preference.class.php:191 ../inc/preference.class.php:208
+#: ../inc/preference.class.php:225 ../inc/preference.class.php:242
+#: ../inc/preference.class.php:259 ../inc/preference.class.php:276
+#: ../inc/preference.class.php:293 ../inc/preference.class.php:310
+#: ../inc/preference.class.php:325
 msgid "Show notifications"
 msgstr "Mostrar notificações"
 
-#: ../inc/preference.class.php:167 ../inc/preference.class.php:184
-#: ../inc/preference.class.php:201 ../inc/preference.class.php:218
-#: ../inc/preference.class.php:235 ../inc/preference.class.php:252
-#: ../inc/preference.class.php:269
+#: ../inc/preference.class.php:197 ../inc/preference.class.php:214
+#: ../inc/preference.class.php:231 ../inc/preference.class.php:248
+#: ../inc/preference.class.php:265 ../inc/preference.class.php:282
+#: ../inc/preference.class.php:299 ../inc/preference.class.php:314
+#: ../inc/preference.class.php:331
 msgid "Notification sound"
 msgstr "Som de notificação"
 
-#: ../inc/preference.class.php:244
+#: ../inc/preference.class.php:274
 msgid "Ticket status updated"
 msgstr "Status do chamado atualizado"
 
-#: ../setup.php:48
+#: ../inc/preference.class.php:308
+msgid "Scheduled task"
+msgstr "Tarefa agendada"
+
+#: ../setup.php:50
 msgid "This plugin requires GLPI >= 0.85"
 msgstr "Este plugin requer GLPI >= 0.85"

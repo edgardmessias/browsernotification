@@ -338,6 +338,10 @@
          ticket_document: {
             item_url: "front/ticket.form.php?id=%ticket_id%&forcetab=Ticket$1",
             count_url: "front/ticket.php?is_deleted=0&sort=19&order=DESC&criteria[0][field]=119&criteria[0][searchtype]=morethan&criteria[0][value]=&gt;0&start=0"
+         },
+         ticket_scheduled_task: {
+            item_url: "front/ticket.form.php?id=%ticket_id%&forcetab=Ticket$1",
+            count_url: "front/ticket.php?is_deleted=0&sort=173&order=DESC&criteria[0][field]=173&criteria[0][searchtype]=morethan&criteria[0][value]=-1HOUR&start=0"
          }
       },
       texts: {
@@ -389,6 +393,12 @@
                item_body: "The document \"%filename%\" has added on ticket #%ticket_id%",
                count_title: "New documents",
                count_body: "You have %count% new documents"
+            },
+            ticket_scheduled_task: {
+               item_title: "Task scheduled on ticket #%ticket_id%",
+               item_body: "Task scheduled for %datetime_format%:\n%content%",
+               count_title: "Scheduled Tasks",
+               count_body: "You have %count% scheduled tasks for now"
             }
          }
       }

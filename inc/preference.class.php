@@ -304,6 +304,21 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
       ]);
       echo "</td><td colspan='2'></td></tr>";
 
+      //Scheduled task
+      echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __bn('Scheduled task') . "</td></tr>";
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Show notifications') . "</td><td>";
+      Dropdown::showYesNo("show_ticket_scheduled_task", $CONFIG["show_ticket_scheduled_task"]);
+      echo "</td><td colspan='2'></td></tr>";
+      echo "<tr class='tab_bg_2'>";
+      echo "<td> " . __bn('Notification sound') . "</td><td>";
+      Dropdown::showFromArray("sound_ticket_scheduled_task", $sounds, [
+         'value'               => $CONFIG["sound_ticket_scheduled_task"],
+         'display_emptychoice' => true,
+         'emptylabel'          => __('Disabled'),
+      ]);
+      echo "</td><td colspan='2'></td></tr>";
+
       //New document
       echo "<tr class='tab_bg_1'><td colspan='4' class='center b'>" . __('Add a document') . "</td></tr>";
       echo "<tr class='tab_bg_2'>";

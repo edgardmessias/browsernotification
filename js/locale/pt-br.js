@@ -50,5 +50,11 @@ GLPIBrowserNotification.default.texts['pt-br'] = {
       item_body: "O documento \"%filename%\" foi adicionado no chamado #%ticket_id%",
       count_title: "Novos documentos",
       count_body: "Você tem %count% novos documentos"
+   },
+   ticket_scheduled_task: {
+      item_title: "Tarefa agendada no chamado #%ticket_id%",
+      item_body: "Tarefa agendada para %datetime_format%:\n%content%",
+      count_title: "Tarefas agendadas",
+      count_body: "Você tem %count% tarefas agendadas para agora"
    }
 };

@@ -14,6 +14,7 @@ $ticket_validation = isset($_GET['ticket_validation']) ? (int) $_GET['ticket_val
 $ticket_status = isset($_GET['ticket_status']) ? (int) $_GET['ticket_status'] : -1;
 $ticket_task = isset($_GET['ticket_task']) ? (int) $_GET['ticket_task'] : -1;
 $ticket_document = isset($_GET['ticket_document']) ? (int) $_GET['ticket_document'] : -1;
+$ticket_scheduled_task = isset($_GET['ticket_scheduled_task']) ? (int) $_GET['ticket_scheduled_task'] : -1;
 
 if ($CFG_BROWSER_NOTIF['show_new_ticket']) {
    $return['new_ticket'] = PluginBrowsernotificationChecker::getNewTicket($new_ticket);
@@ -38,6 +39,10 @@ if ($CFG_BROWSER_NOTIF['show_ticket_task']) {
 }
 if ($CFG_BROWSER_NOTIF['show_ticket_document']) {
    $return['ticket_document'] = PluginBrowsernotificationChecker::getTicketDocument($ticket_document);
+}
+
+if ($CFG_BROWSER_NOTIF['show_ticket_scheduled_task']) {
+   $return['ticket_scheduled_task'] = PluginBrowsernotificationCheckerByDatetime::getTicketScheduledTasks($ticket_scheduled_task);
 }
 
 //echo '<pre style="word-wrap: break-word;white-space: pre-wrap;">';
