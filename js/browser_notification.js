@@ -180,7 +180,7 @@
 
             for (var t in data) {
                if (data[t] === false) {
-                  new_last_ids[t] = -1;
+                  new_last_ids[t] = last_ids[t] || -1;
                } else {
                   new_last_ids[t] = data[t].last_id;
                }
