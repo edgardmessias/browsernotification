@@ -10,7 +10,7 @@ header('Content-Type:application/javascript');
 $options = [
    'user_id'  => Session::getLoginUserID(),
    'base_url' => $CFG_GLPI['root_doc'],
-   'interval' => ($CFG_BROWSER_NOTIF['check_interval'] < 5 ? $CFG_BROWSER_NOTIF['check_interval'] : 5) * 1000,
+   'interval' => ($CFG_BROWSER_NOTIF['check_interval'] > 5 ? $CFG_BROWSER_NOTIF['check_interval'] : 5) * 1000,
    'locale'   => strtolower($CFG_GLPI["languages"][$_SESSION['glpilanguage']][2]),
 ];
 
