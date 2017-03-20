@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2017-02-14 11:47-0300\n"
+"PO-Revision-Date: 2017-03-02 14:00-0300\n"
+"Last-Translator: Nikolay Petrov <techobsl@yandex.ru>\n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-KeywordsList: __bn\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../inc/config.class.php:8 ../inc/preference.class.php:50 ../setup.php:39
+msgid "Browser Notification"
+msgstr "Браузерные уведомления"
+
+#: ../inc/config.class.php:56
+msgid "Ignore deleted items?"
+msgstr "Игнорировать удаленные элементы?"
+
+#: ../inc/config.class.php:58
+msgid "Time to check for new notifications (in seconds)"
+msgstr "Время для проверки новых уведомлений (в секундах)"
+
+#: ../inc/config.class.php:63
+msgid "URL of the icon"
+msgstr "URL значка"
+
+#: ../inc/preference.class.php:161 ../inc/preference.class.php:162
+#: ../inc/preference.class.php:163 ../inc/preference.class.php:164
+msgid "Sound"
+msgstr "Звук"
+
+#: ../inc/preference.class.php:174
+msgid "Default notification sound"
+msgstr "Звук уведомления по умолчанию"
+
+#: ../inc/preference.class.php:182
+msgid "Show an example notification"
+msgstr "Показать пример уведомления"
+
+#: ../inc/preference.class.php:183
+msgid "Show example"
+msgstr "Показать пример"
+
+#: ../inc/preference.class.php:191 ../inc/preference.class.php:208
+#: ../inc/preference.class.php:225 ../inc/preference.class.php:242
+#: ../inc/preference.class.php:259 ../inc/preference.class.php:276
+#: ../inc/preference.class.php:293 ../inc/preference.class.php:310
+#: ../inc/preference.class.php:325
+msgid "Show notifications"
+msgstr "Показать уведомление"
+
+#: ../inc/preference.class.php:197 ../inc/preference.class.php:214
+#: ../inc/preference.class.php:231 ../inc/preference.class.php:248
+#: ../inc/preference.class.php:265 ../inc/preference.class.php:282
+#: ../inc/preference.class.php:299 ../inc/preference.class.php:314
+#: ../inc/preference.class.php:331
+msgid "Notification sound"
+msgstr "Звук уведомления"
+
+#: ../inc/preference.class.php:274
+msgid "Ticket status updated"
+msgstr "Статус заявки обновился"
+
+#: ../inc/preference.class.php:308
+msgid "Scheduled task"
+msgstr "Запланированная задача"
+
+#: ../setup.php:50
+msgid "This plugin requires GLPI >= 0.85"
+msgstr "Для этого плагина требуется GLPI >= 0.85"
