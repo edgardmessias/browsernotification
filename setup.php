@@ -40,6 +40,7 @@ function plugin_version_browsernotification() {
       'version'        => PLUGIN_BROWSERNOTIFICATION_VERSION,
       'author'         => 'Edgard Lorraine Messias',
       'homepage'       => 'https://github.com/edgardmessias/browsernotification',
+      'license'        => 'BSD-3-Clause',
       'minGlpiVersion' => '0.85'
    );
 }
