@@ -1,6 +1,6 @@
 <?php
 
-define('PLUGIN_BROWSERNOTIFICATION_VERSION', '1.1.3');
+define('PLUGIN_BROWSERNOTIFICATION_VERSION', '1.1.4');
 
 // Init the hooks of the plugins -Needed
 function plugin_init_browsernotification() {
@@ -22,14 +22,12 @@ function plugin_init_browsernotification() {
    Plugin::registerClass('PluginBrowsernotificationPreference', [
       'addtabon' => ['Preference', 'User']
    ]);
-   
-   $PLUGIN_HOOKS['config_page']['browsernotification'] = '../../front/config.form.php?forcetab=PluginBrowsernotificationConfig$1';
 
-   $locale = strtolower($CFG_GLPI["languages"][$_SESSION['glpilanguage']][2]);
+   $PLUGIN_HOOKS['config_page']['browsernotification'] = '../../front/config.form.php?forcetab=PluginBrowsernotificationConfig$1';
 
    $PLUGIN_HOOKS['add_javascript']['browsernotification'][] = 'js/notification.js';
    $PLUGIN_HOOKS['add_javascript']['browsernotification'][] = 'js/browser_notification.js';
-   $PLUGIN_HOOKS['add_javascript']['browsernotification'][] = 'js/locale/' . $locale . '.js';
+   $PLUGIN_HOOKS['add_javascript']['browsernotification'][] = 'js/locale.js.php';
    $PLUGIN_HOOKS['add_javascript']['browsernotification'][] = 'js/user_notification.js.php';
 }
 
