@@ -6,6 +6,7 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
    static $rightname = '';
    //
    public $user_id = null;
+   public $default = [];
    public $preferences = [];
 
    public function __construct($user_id = null) {
@@ -15,11 +16,11 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
    }
 
    public function computePreferences() {
-      $this->preferences = Config::getConfigurationValues('browsernotification');
+      $this->default = Config::getConfigurationValues('browsernotification');
 
       if ($this->user_id) {
          $user_prefer = Config::getConfigurationValues('browsernotification (' . $this->user_id . ')');
-         $this->preferences = array_merge($this->preferences, $user_prefer);
+         $this->preferences = array_merge($this->default, $user_prefer);
       }
    }
 
@@ -31,8 +32,8 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
             unset($input[$key]);
             continue;
          }
-         //Removed not changed options;
-         if ($this->preferences[$key] == $value) {
+         //Remove default options;
+         if ($this->default[$key] == $value) {
             $deleted[] = $key;
             unset($input[$key]);
             continue;
