@@ -21,6 +21,8 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
       if ($this->user_id) {
          $user_prefer = Config::getConfigurationValues('browsernotification (' . $this->user_id . ')');
          $this->preferences = array_merge($this->default, $user_prefer);
+      } else {
+         $this->preferences = $this->default;
       }
    }
 
