@@ -41,6 +41,29 @@ if ($CFG_BROWSER_NOTIF["icon_url"]) {
    //global register
    browsernotification = new GLPIBrowserNotification(<?php echo json_encode($options) ?>);
    browsernotification.start();
+
+   /**
+    * Support to http://ie-web-notifications.github.io/
+    */
+   if (!browsernotification.isSupported()
+           && (navigator.userAgent.indexOf('MSIE') !== -1
+                   || navigator.appVersion.indexOf('Trident/') > 0)) {
+      /* Microsoft Internet Explorer detected in. */
+      var attempts = 0;
+      function waitForNotificationsAndInit() {
+         if (!browsernotification.isSupported()) {
+            if (attempts < 50) {
+               attempts++;
+               setTimeout(waitForNotificationsAndInit, 100);
+            }
+         } else {
+            browsernotification.start();
+         }
+         // It's required to queue the code using `window.Notification` because the
+         // latter is injected after `document.onload`.
+         waitForNotificationsAndInit();
+      }
+   }
 <?php if (false): ?>
    </script>
 <?php endif; ?>
