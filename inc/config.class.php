@@ -57,7 +57,12 @@ class PluginBrowsernotificationConfig extends CommonDBTM {
       Dropdown::showYesNo("ignore_deleted_items", $CFG_GLOBAL["ignore_deleted_items"]);
       echo "</td><td width='30%'>" . __bn('Time to check for new notifications (in seconds)') . "</td>";
       echo "<td width='20%'>";
-      Dropdown::showInteger('check_interval', $CFG_GLOBAL["check_interval"], 5, 120, 5);
+      Dropdown::showNumber('check_interval', [
+         'value' => $CFG_GLOBAL["check_interval"],
+         'min'   => 5,
+         'max'   => 120,
+         'step'  => 5,
+      ]);
       echo "</td></tr>";
       echo "<tr class='tab_bg_2'>";
       echo "<td>" . __bn('URL of the icon') . "</td>";
