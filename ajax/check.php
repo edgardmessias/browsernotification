@@ -1,5 +1,7 @@
 <?php
 
+$CFG_BROWSER_NOTIF = array();
+
 include ("../../../inc/includes.php");
 
 Session::checkLoginUser();
