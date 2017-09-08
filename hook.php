@@ -2,7 +2,7 @@
 
 function plugin_browsernotification_install() {
 
-   $default = [
+   $default = array(
       'ignore_deleted_items'             => 1,
       'check_interval'                   => 5,
       'icon_url'                         => '',
@@ -33,7 +33,7 @@ function plugin_browsernotification_install() {
       'sound_ticket_document'            => 'default',
       'show_ticket_scheduled_task'       => 1,
       'sound_ticket_scheduled_task'      => 'default',
-   ];
+   );
 
    $current = Config::getConfigurationValues('browsernotification');
 
@@ -53,7 +53,7 @@ function plugin_browsernotification_uninstall() {
    $rows = $config->find("`context` LIKE 'browsernotification%'");
 
    foreach ($rows as $id => $row) {
-      $config->delete(['id' => $id]);
+      $config->delete(array('id' => $id));
    }
 
    return true;

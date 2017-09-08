@@ -6,8 +6,8 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
    static $rightname = '';
    //
    public $user_id = null;
-   public $default = [];
-   public $preferences = [];
+   public $default = array();
+   public $preferences = array();
 
    public function __construct($user_id = null) {
       $this->user_id = $user_id;
@@ -27,7 +27,7 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
    }
 
    public function update(array $input, $history = 1, $options = array()) {
-      $deleted = [];
+      $deleted = array();
       foreach ($input as $key => $value) {
          //Remove invalid options;
          if (!isset($this->preferences[$key])) {
@@ -142,7 +142,7 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
 
       $files = scandir($sounds_dir);
 
-      $sounds = [];
+      $sounds = array();
 
       foreach ($files as $file) {
          if ($file === '.' || $file === '..') {
@@ -160,12 +160,12 @@ class PluginBrowsernotificationPreference extends CommonDBTM {
    function showFormDefault() {
       $CONFIG = $this->preferences;
 
-      $sounds = [
+      $sounds = array(
          'sound_a' => __bn('Sound') . ' A',
          'sound_b' => __bn('Sound') . ' B',
          'sound_c' => __bn('Sound') . ' C',
          'sound_d' => __bn('Sound') . ' D',
-      ];
+      );
 
       $custom_sounds = $this->getSounds();
 

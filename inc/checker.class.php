@@ -6,7 +6,7 @@ class PluginBrowsernotificationChecker {
       /* @var $DB DB */
       global $DB;
 
-      $found = [];
+      $found = array();
       $last_id = (int) $last_id;
 
       if (is_array($select)) {
@@ -57,18 +57,18 @@ LIMIT $limit";
       }
 
       if ($totalcount > count($found)) {
-         $found = [];
+         $found = array();
       }
       if (!empty($found)) {
          $found = array_reverse($found);
       }
 
-      return [
+      return array(
          'last_id' => (int) $last_id,
          'items'   => $found,
          'count'   => (int) $totalcount,
 //         'query'   => $query,
-      ];
+      );
    }
 
    public static function getNewTicket($last_id = 0, $max_items = 3) {
@@ -77,9 +77,9 @@ LIMIT $limit";
 
       $table = 'glpi_tickets';
 
-      $select = [];
-      $join = [];
-      $where = [];
+      $select = array();
+      $join = array();
+      $where = array();
 
       $select[] = "`$table`.id AS ticket_id";
       $select[] = "`$table`.name";
@@ -101,7 +101,7 @@ LIMIT $limit";
             . "\n       ON user_assign.tickets_id = `$table`.id"
             . "\n      AND user_assign.type = " . Ticket_User::ASSIGN;
 
-      $user_where = [];
+      $user_where = array();
       $user_where[] = "user_request.users_id = " . Session::getLoginUserID();
       $user_where[] = "user_observer.users_id = " . Session::getLoginUserID();
 //      $user_where[] = "user_assign.users_id = " . Session::getLoginUserID(); //Use self::getAssignedTicket
@@ -126,7 +126,7 @@ LIMIT $limit";
 
       //Show to technician news tickets without assign
       if (Session::haveRightsOr(Ticket::$rightname, [Ticket::STEAL, Ticket::OWN])) {
-         $technician_where = [];
+         $technician_where = array();
          $technician_where[] = "`$table`.status = " . Ticket::INCOMING;
          $technician_where[] = "user_assign.users_id IS NULL";
          $technician_where[] = "group_assign.groups_id IS NULL";
@@ -147,9 +147,9 @@ LIMIT $limit";
 
       $table = 'glpi_tickets_users';
 
-      $select = [];
-      $join = [];
-      $where = [];
+      $select = array();
+      $join = array();
+      $where = array();
 
       //Only assigned
       $where[] = "`$table`.type = " . Ticket_User::ASSIGN;
@@ -185,9 +185,9 @@ LIMIT $limit";
 
       $table = 'glpi_groups_tickets';
 
-      $select = [];
-      $join = [];
-      $where = [];
+      $select = array();
+      $join = array();
+      $where = array();
 
       //Only assigned
       $where[] = "`$table`.type = " . Ticket_User::ASSIGN;
@@ -225,9 +225,9 @@ LIMIT $limit";
 
       $table = 'glpi_ticketfollowups';
 
-      $select = [];
-      $join = [];
-      $where = [];
+      $select = array();
+      $join = array();
+      $where = array();
 
       $select[] = "`$table`.tickets_id AS ticket_id";
       $select[] = "`$table`.content";
@@ -289,9 +289,9 @@ LIMIT $limit";
 
       $table = 'glpi_ticketvalidations';
 
-      $select = [];
-      $join = [];
-      $where = [];
+      $select = array();
+      $join = array();
+      $where = array();
 
       $select[] = "`$table`.tickets_id AS ticket_id";
       $select[] = "`$table`.comment_submission";
@@ -342,9 +342,9 @@ LIMIT $limit";
 
       $table = 'glpi_logs';
 
-      $select = [];
-      $join = [];
-      $where = [];
+      $select = array();
+      $join = array();
+      $where = array();
 
       $select[] = "`$table`.items_id AS ticket_id";
       $select[] = "`$table`.user_name";
@@ -364,9 +364,9 @@ LIMIT $limit";
       //Join user
       $join[] = "LEFT JOIN `glpi_tickets_users`"
             . "\n       ON `glpi_tickets_users`.tickets_id = `glpi_tickets`.id"
-            . "\n      AND `glpi_tickets_users`.type IN (" . implode(', ', [Ticket_User::REQUESTER, Ticket_User::ASSIGN, Ticket_User::OBSERVER]) . ")";
+            . "\n      AND `glpi_tickets_users`.type IN (" . implode(', ', array(Ticket_User::REQUESTER, Ticket_User::ASSIGN, Ticket_User::OBSERVER)) . ")";
 
-      $user_where = [];
+      $user_where = array();
       $user_where[] = "`glpi_tickets_users`.users_id = " . Session::getLoginUserID();
 
       //Show new ticket from group
@@ -374,7 +374,7 @@ LIMIT $limit";
          //Join Group
          $join[] = "LEFT JOIN `glpi_groups_tickets`"
                . "\n       ON `glpi_groups_tickets`.tickets_id = `glpi_tickets`.id"
-               . "\n      AND `glpi_groups_tickets`.type IN (" . implode(', ', [Group_Ticket::REQUESTER, Group_Ticket::ASSIGN, Group_Ticket::OBSERVER]) . ")";
+               . "\n      AND `glpi_groups_tickets`.type IN (" . implode(', ', array(Group_Ticket::REQUESTER, Group_Ticket::ASSIGN, Group_Ticket::OBSERVER)) . ")";
 
          $group_list = implode(',', $_SESSION['glpigroups']);
          $user_where[] = "`glpi_groups_tickets`.groups_id IN ($group_list)";
@@ -413,9 +413,9 @@ LIMIT $limit";
 
       $table = 'glpi_tickettasks';
 
-      $select = [];
-      $join = [];
-      $where = [];
+      $select = array();
+      $join = array();
+      $where = array();
 
       $select[] = "`$table`.tickets_id AS ticket_id";
       $select[] = "`$table`.content";
@@ -425,7 +425,7 @@ LIMIT $limit";
          $where[] = "`$table`.users_id <> " . Session::getLoginUserID(); //Ignore current user
       }
 
-      $user_where = [];
+      $user_where = array();
       $user_where[] = "`$table`.users_id_tech = " . Session::getLoginUserID(); //User to validate
       //
 
@@ -468,9 +468,9 @@ LIMIT $limit";
 
       $table = 'glpi_documents_items';
 
-      $select = [];
-      $join = [];
-      $where = [];
+      $select = array();
+      $join = array();
+      $where = array();
 
       $select[] = "`$table`.items_id AS ticket_id";
 

@@ -4,7 +4,7 @@ include ("../../../inc/includes.php");
 
 Session::checkLoginUser();
 
-$return = [];
+$return = array();
 
 $new_ticket = isset($_GET['new_ticket']) ? (int) $_GET['new_ticket'] : -1;
 $assigned_ticket = isset($_GET['assigned_ticket']) ? (int) $_GET['assigned_ticket'] : -1;

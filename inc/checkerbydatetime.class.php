@@ -11,7 +11,7 @@ class PluginBrowsernotificationCheckerByDatetime {
       $date_time_now = date('Y-m-d H:i:s');
       $date_time_now_escaped = $DB->escape($date_time_now);
 
-      $found = [];
+      $found = array();
 
       if (is_array($select)) {
          $select = implode(", ", $select);
@@ -74,19 +74,19 @@ LIMIT $limit";
       }
 
       if ($totalcount > count($found)) {
-         $found = [];
+         $found = array();
       }
       if (!empty($found)) {
          $found = array_reverse($found);
       }
 
-      return [
+      return array(
          'last_id' => (int) $last_timestamp,
          'items'   => $found,
          'count'   => (int) $totalcount,
 //         'query'   => $query,
 //         'query_lastidrow'   => $query_lastidrow,
-      ];
+      );
    }
 
    public static function getTicketScheduledTasks($last_timestamp = 0, $max_items = 3) {
@@ -101,15 +101,15 @@ LIMIT $limit";
 
       $table = 'glpi_tickettasks';
 
-      $select = [];
-      $join = [];
-      $where = [];
+      $select = array();
+      $join = array();
+      $where = array();
 
       $select[] = "`$table`.tickets_id AS ticket_id";
       $select[] = "`$table`.content";
       $select[] = "`$table`.state";
 
-      $user_where = [];
+      $user_where = array();
       $user_where[] = "`$table`.users_id_tech = " . Session::getLoginUserID(); //User to validate
 
       if (version_compare(GLPI_VERSION, '9.1', '>=')) {
