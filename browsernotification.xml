@@ -6,32 +6,83 @@
     <logo>https://raw.githubusercontent.com/edgardmessias/browsernotification/master/plugin.png</logo>
     <description>
         <short>
+            <cs><![CDATA[Tento zásuvný modul umožňuje vašemu webovému prohlížeči zobrazovat oznámení z GLPI]]></cs>
             <en><![CDATA[This plugin allow your browser to show notifications for GLPI]]></en>
         </short>
         <long>
+           <cs><![CDATA[
+# Oznamování ve webovém prohlížeči (GLPI)
+Tento zásuvný modul umožňuje vašemu webovému prohlížeči zobrazovat oznámení z GLPI
+
+# Instalace
+ * Rozbalte archiv do složky `<GLPI_ROOT>/plugins/browsernotification`
+ * Jděte na stránku Nastavení > Zásuvné moduly,
+ * Nainstalujte a aktivujte modul.
+ * Jděte do `Nastavení > Obecné > Oznamování v prohlížeči` a nastavte
+
+# Použití
+ * Oznámení se budou zobrazovat pouze pokud je prohlížeč otevřený
+ * Výchozí nastavení změníte v`Nastavení > Obecné > Oznamování v prohlížeči`
+ * Uživatelé mohou jít do `Předvolby > Oznamování v prohlížeči` a upravit si nastavení pro sebe
+ * Pozn.: První oznámení je přeskočeno.
+
+# Vlastní zvuky
+ * Vytvořte složku `sounds` v `<GLPI_ROOT>`
+ * Umístěte své zvuky do `<GLPI_ROOT>/sounds`. Přednostně formáty `MP3`, `OGG` a `WAV`
+ * Nastavte v `Nastavení > Obecné > Oznamování v prohlížeči` nebo `Předvolby > Oznamování v prohlížeči`
+ * Příklad stránek, ze kterých je možné stáhnout si zvuky: <https://notificationsounds.com/notification-sounds>
+
+# Prostředky
+ * Umožňuje otevřít vícero prohlížečů nebo panelů a zobrazit pouze jedno oznámení
+ * Nízké vytížení zdrojů
+ * Umožňuje nastavení
+ * Oznámení ve všech prohlížečích ve kterých je připojené
+ * Přehrává zvuky
+ * Zobrazuje oznámení o naplánovaných úlohách
+
+# Zbývá udělat
+* [ ] Oprávnění uživatelského profilu
+
+# Darování:
+* Darování je dle vaší dobré vůle na podporu vývoje.
+* Pokud máte zájem na budoucím vývoji, opravdu bych ocenil malý dar na podporu tohto projektu.
+```html
+Adresa mé Monero peněženky (XMR)
+429VTmDsAw4aKgibxkk4PzZbxzj8txYtq5XrKHc28pXsUtMDWniL749WbwaVe4vUMveKAzAiA4j8xgUi29TpKXpm41bmrwQ
+```
+```html
+Adresa mé Bitcoin peněženky (BTC)
+38hcARGVzgYrcdYPkXxBXKTqScdixvFhZ4
+```
+```html
+Adresa mé Ethereum peněženky (ETH)
+0xdb77aa3d0e496c73a0dac816ac33ea389cf54681
+```
+Jiná kryptopeněženka: https://freewallet.org/id/edgardmessias
+]]></cs>
             <en><![CDATA[
 # Browser Notification (GLPI)
 This plugin allow your browser to show notifications for GLPI
 
-# Installation (EN)
+# Installation
  * Uncompress the archive to the `<GLPI_ROOT>/plugins/browsernotification` directory
  * Navigate to the Configuration > Plugins page,
  * Install and activate the plugin.
  * Go to `Configuration > General > Browser Notification` and configure
 
-# Usage (EN)
+# Usage
  * You need keep a browser open to show notifications
  * Go to `Configuration > General > Browser Notification` to configure default settings
  * Users can go to `Preferences > Browser Notification` to configure your settings
  * Note: First notification is skipped.
 
-# Custom Sounds (EN)
+# Custom Sounds
  * Make folder `sounds` in `<GLPI_ROOT>`
  * Put your sounds in `<GLPI_ROOT>/sounds`. Preferably `MP3`, `OGG` and `WAV`
  * Configure in `Configuration > General > Browser Notification` or `Preferences > Browser Notification`
  * Example site with sounds to download: <https://notificationsounds.com/notification-sounds>
 
-# Resources (EN)
+# Resources
  * Allow open multiple browsers or tabs and show only one notification
  * Low resource usage
  * Allow configuration
@@ -154,9 +205,14 @@ Another Cryptocurrency: https://freewallet.org/id/edgardmessias
     </langs>
     <license><![CDATA[GPL v2+]]></license>
     <tags>
+        <cs>
+            <tag>Prohlížeč</tag>
+            <tag>Webové oznamování</tag>
+            <tag>Oznamování</tag>
+        </cs>
         <en>
             <tag>Browser</tag>
-            <tag>Web notifcaion</tag>
+            <tag>Web notification</tag>
             <tag>Notification</tag>
         </en>
     </tags>
