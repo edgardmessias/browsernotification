@@ -30,19 +30,22 @@ This plugin allow your browser to show notifications for GLPI
 # TODO
 * [ ] User profile permission
 
-# Donations:
+# Donation
 * Donation is as per your goodwill to support my development.
 * If you are interested in my future developments, i would really appreciate a small donation to support this project.
-```html
-My Monero Wallet Address (XMR)
-429VTmDsAw4aKgibxkk4PzZbxzj8txYtq5XrKHc28pXsUtMDWniL749WbwaVe4vUMveKAzAiA4j8xgUi29TpKXpm41bmrwQ
-```
-```html
-My Bitcoin Wallet Address (BTC)
-38hcARGVzgYrcdYPkXxBXKTqScdixvFhZ4
-```
-```html
-My Ethereum Wallet Address (ETH)
-0xdb77aa3d0e496c73a0dac816ac33ea389cf54681
-```
-Another Cryptocurrency: https://freewallet.org/id/edgardmessias
+<table border="0">
+ <tr>
+    <td align="center">
+    PayPal <br>
+       <img src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=https://www.paypal.com/donate?hosted_button_id=5KHYY5ZDTNDSY"> <br>
+       <a href="https://www.paypal.com/donate?hosted_button_id=5KHYY5ZDTNDSY">
+          <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif">
+       </a>
+    </td>
+    <td align="center">
+       Pix (Brazil) <br>
+       <img src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=00020126680014BR.GOV.BCB.PIX013628571c52-8b9b-416c-a18f-8e52460608810206Doa%C3%A7%C3%A3o5204000053039865802BR5923Edgard%20Lorraine%20Messias6009SAO%20PAULO61080540900062160512NU50UnEaVM0H63042A45"> <br>
+       28571c52-8b9b-416c-a18f-8e5246060881
+    </td>
+ </tr>
+</table>
